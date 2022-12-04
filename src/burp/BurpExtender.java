@@ -66,10 +66,12 @@ public class BurpExtender implements IBurpExtender, IHttpListener {
 
                 if(v.equals("")){
                     dest = dest.replace("\""+k+"\""+":"+"\"\"","\""+k+"\""+":"+"\"§§\"");
+                    dest = dest.replace("<"+k+"></"+k+">","<"+k+">§"+"§</"+k+">"); //xml format
                 }else{
                     dest = dest.replace(k+"="+v,k+"="+"§"+v+"§");
                     dest = dest.replace("\""+k+"\""+":"+v,"\""+k+"\""+":"+"§"+v+"§");
                     dest = dest.replace("\""+k+"\""+":"+"\""+v+"\"","\""+k+"\""+":"+"\"§"+v+"§\"");
+                    dest = dest.replace("<"+k+">"+v+"</"+k+">","<"+k+">§"+v+"§</"+k+">"); // xml format
                 }
             }
         }
